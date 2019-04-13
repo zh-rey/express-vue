@@ -1,3 +1,8 @@
+const path = require('path')
+const resolve = (dir) => {
+  return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
   publicPath: './',
   outputDir: 'dist', //  输出文件夹
@@ -15,6 +20,17 @@ module.exports = {
       // 给 sass-loader 传递选项
       sass: {
         data: `@import "@/variables.scss";` // 引入公共scss样式
+      }
+    }
+  },
+  configureWebpack: {
+    entry: {
+      app: './src/client/main.ts'
+    },
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        '@': resolve('src')
       }
     }
   }
