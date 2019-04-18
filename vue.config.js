@@ -1,6 +1,6 @@
 const path = require('path')
 const resolve = (dir) => {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, dir, '/client')
 }
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     loaderOptions: {
       // 给 sass-loader 传递选项
       sass: {
-        data: `@import "@/variables.scss";` // 引入公共scss样式
+        data: `@import "@/assets/css/reset.scss";` // 引入公共scss样式
       }
     }
   },
